@@ -1,0 +1,26 @@
+{
+  "name": "github-hotline",
+  "version": "0.1.0",
+  "description": "Simple command line utility for commenting on pull requests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blamattina/github-hotline.git"
+  },
+  "keywords": [
+    "github",
+    "cli",
+    "pull",
+    "request",
+    "pullrequest"
+  ],
+  "author": "Brian LaMattina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blamattina/github-hotline/issues"
+  },
+  "homepage": "https://github.com/blamattina/github-hotline"
+}
