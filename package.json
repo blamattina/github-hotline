@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Simple command line utility for commenting on pull requests",
   "main": "index.js",
+  "bin": {
+    "issue-comment": "./bin/issue-comment-cli.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,5 +25,10 @@
   "bugs": {
     "url": "https://github.com/blamattina/github-hotline/issues"
   },
-  "homepage": "https://github.com/blamattina/github-hotline"
+  "homepage": "https://github.com/blamattina/github-hotline",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "help": "^2.1.1",
+    "minimist": "^1.2.0"
+  }
 }

@@ -1,0 +1,13 @@
+USAGE: issue-comment USER/REPO#NUMBER COMMENT...
+
+  Issue a comment on a pull request.
+
+  USER        github user name
+  REPO        github repository name
+  NUMBER      pull request number
+  COMMENT     comment to leave
+
+Example:
+
+  issue-comment blamattina/github-hotline#3400 This works great!
+
