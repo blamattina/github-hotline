@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/blamattina/github-hotline",
   "dependencies": {
+    "chalk": "^1.1.1",
     "debug": "^2.2.0",
     "help": "^2.1.1",
     "minimist": "^1.2.0"
