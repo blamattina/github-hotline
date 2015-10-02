@@ -3,7 +3,7 @@ var DestinationParser = require('../lib/destination-parser');
 describe('DestinationParser', function() {
 
   beforeEach(function() {
-    this.destination = 'blamattina/github-hotline#12030';
+    this.destination = 'blamattina/github-hotline_2#12030';
     this.parser = new DestinationParser(this.destination);
   });
 
@@ -60,7 +60,7 @@ describe('DestinationParser', function() {
 
   describe('#getRepo', function() {
     it('returns the user', function () {
-      expect(this.parser.getRepo()).toBe('github-hotline')
+      expect(this.parser.getRepo()).toBe('github-hotline_2')
     });
   });
 
