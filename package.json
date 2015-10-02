@@ -7,7 +7,9 @@
     "issue-comment": "./bin/issue-comment-cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "eslint": "eslint src/ specs/",
+    "jasmine": "jasmine",
+    "test": "npm run eslint && npm run jasmine"
   },
   "repository": {
     "type": "git",
@@ -30,5 +32,9 @@
     "debug": "^2.2.0",
     "help": "^2.1.1",
     "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^1.5.1",
+    "jasmine": "^2.3.2"
   }
 }
