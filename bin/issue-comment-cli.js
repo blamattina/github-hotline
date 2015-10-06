@@ -21,7 +21,7 @@ function parseArgs(argv) {
         number = argv['number'];
         body = argv._.slice(0).join(' ');
 
-  } else {
+  } else if (argv._.length >= 2) {
     var destination = argv._[0],
         body = argv._.slice(1).join(' ');
 
@@ -29,6 +29,10 @@ function parseArgs(argv) {
         user = destinationParser.getUser(),
         repo = destinationParser.getRepo(),
         number = destinationParser.getNumber();
+  } else {
+    debug('Invalid arguments: ');
+    debug(argv);
+    help(0);
   }
   return {
     user: user,
@@ -40,19 +44,13 @@ function parseArgs(argv) {
 
 try {
   var params = parseArgs(argv);
-  if (params.user && params.repo && params.number && params.body) {
-    debug('Issue comment with: ', params);
-    hotline.createIssueComment({
-      user: params.user,
-      repo: params.repo,
-      number: params.number,
-      body: params.body
-    });
-  } else {
-    debug('Invalid arguments: ');
-    debug(argv);
-    help(0);
-  }
+  debug('Issue comment with: ', params);
+  hotline.createIssueComment({
+    user: params.user,
+    repo: params.repo,
+    number: params.number,
+    body: params.body
+  });
 } catch (error) {
   reportError(error);
 }
