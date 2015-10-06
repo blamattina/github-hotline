@@ -1,4 +1,4 @@
-# github-hotline [![Build Status](https://img.shields.io/circleci/project/blamattina/github-hotline.svg?style=flat-square)](https://circleci.com/gh/blamattina/generator-coffeelint)
+# github-hotline [![Build Status](https://img.shields.io/circleci/project/blamattina/github-hotline.svg?style=flat-square)](https://circleci.com/gh/blamattina/github-hotline)
 
 > Simple command line utility for commenting on pull requests
 

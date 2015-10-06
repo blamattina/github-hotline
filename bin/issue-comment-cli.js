@@ -4,7 +4,8 @@ var _ = require('lodash'),
     help = require('help')(__dirname + '/../doc/issue-comment.txt'),
     debug = require('debug')('github-hotline:issue-comment-cli'),
     chalk = require('chalk'),
-    DestinationParser = require('../lib/destination-parser');
+    DestinationParser = require('../lib/destination-parser'),
+    hotline = require('../lib/github-hotline');
 
 function reportError(error) {
   debug('Uncaught exception. Exiting!');
@@ -18,34 +19,34 @@ function parseArgs(argv) {
     var user = argv['user'],
         repo = argv['repo'],
         number = argv['number'];
-        comment = argv._.slice(0).join(' ');
+        body = argv._.slice(0).join(' ');
 
   } else {
     var destination = argv._[0],
-        comment = argv._.slice(1).join(' ');
+        body = argv._.slice(1).join(' ');
 
     var destinationParser = new DestinationParser(destination),
         user = destinationParser.getUser(),
         repo = destinationParser.getRepo(),
-        number = destinationParser.getNumber;
+        number = destinationParser.getNumber();
   }
   return {
     user: user,
     repo: repo,
     number: number,
-    comment: comment
+    body: body
   }
 }
 
 try {
   var params = parseArgs(argv);
-  if (params.user && params.repo && params.number && params.comment) {
+  if (params.user && params.repo && params.number && params.body) {
     debug('Issue comment with: ', params);
-    console.log({
+    hotline.createIssueComment({
       user: params.user,
       repo: params.repo,
       number: params.number,
-      comment: params.comment
+      body: params.body
     });
   } else {
     debug('Invalid arguments: ');
