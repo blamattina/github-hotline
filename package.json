@@ -8,7 +8,7 @@
   },
   "scripts": {
     "eslint": "eslint src/ specs/",
-    "jasmine": "jasmine",
+    "jasmine": "NODE_PATH=. jasmine",
     "test": "npm run eslint && npm run jasmine"
   },
   "repository": {
@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/blamattina/github-hotline",
   "dependencies": {
+    "bluebird": "^2.10.2",
     "chalk": "^1.1.1",
     "debug": "^2.2.0",
     "help": "^2.1.1",
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "eslint": "^1.5.1",
+    "jasmine-core": "^2.3.4",
     "jasmine": "^2.3.2"
   }
 }
