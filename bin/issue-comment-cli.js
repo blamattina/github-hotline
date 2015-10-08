@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-var _ = require('lodash'),
-    argv = require('minimist')(process.argv.slice(2)),
+var argv = require('minimist')(process.argv.slice(2)),
     help = require('help')(__dirname + '/../doc/issue-comment.txt'),
     debug = require('debug')('github-hotline:issue-comment-cli'),
     chalk = require('chalk'),
@@ -22,7 +21,7 @@ function reportError(error) {
 }
 
 function parseArgs(argv) {
-  if (_(argv).has('user') && _(argv).has('repo') && _(argv).has('number')) {
+  if (argv.user && argv.repo && argv.number) {
     var user = argv['user'],
         repo = argv['repo'],
         number = argv['number'];
@@ -39,7 +38,7 @@ function parseArgs(argv) {
   } else {
     debug('Invalid arguments: ');
     debug(argv);
-    help(0);
+    return help(1);
   }
   return {
     user: user,
@@ -51,13 +50,16 @@ function parseArgs(argv) {
 
 try {
   var params = parseArgs(argv);
-  debug('Issue comment with: ', params);
-  hotline.createIssueComment({
-    user: params.user,
-    repo: params.repo,
-    number: params.number,
-    body: params.body
-  }).then(reportSuccess, reportError);
+  if (params) {
+    debug('Issue comment with...');
+    debug(params);
+    hotline.createIssueComment({
+      user: params.user,
+      repo: params.repo,
+      number: params.number,
+      body: params.body
+    }).then(reportSuccess, reportError);
+  }
 } catch (error) {
   reportError(error);
 }
