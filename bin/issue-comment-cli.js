@@ -7,12 +7,19 @@ var _ = require('lodash'),
     DestinationParser = require('../lib/destination-parser'),
     hotline = require('../lib/github-hotline');
 
+function reportSuccess(data) {
+  debug('Message sent');
+  debug(data);
+  console.log('Message Sent!');
+  process.exit(0);
+}
+
 function reportError(error) {
   debug('Uncaught exception. Exiting!');
   debug(error);
   console.error(chalk.red('\nERROR: ' + error.message + '\n'));
   help(1);
-};
+}
 
 function parseArgs(argv) {
   if (_(argv).has('user') && _(argv).has('repo') && _(argv).has('number')) {
@@ -50,7 +57,7 @@ try {
     repo: params.repo,
     number: params.number,
     body: params.body
-  });
+  }).then(reportSuccess, reportError);
 } catch (error) {
   reportError(error);
 }
