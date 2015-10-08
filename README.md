@@ -1,5 +1,4 @@
-# github-hotline [![Build Status](https://img.shields.io/circleci/project/blamattina/github-hotline.svg?style=flat-square)](https://circleci.com/gh/blamattina/github-hotline)
-
+# github-hotline [![Build Status](https://img.shields.io/circleci/project/blamattina/github-hotline.svg?style=flat-square)](https://circleci.com/gh/blamattina/github-hotline) [![npm](https://img.shields.io/npm/v/github-hotline.svg?style=flat-square)](https://www.npmjs.com/package/github-hotline)
 > Simple command line utility for commenting on pull requests
 
 ## Getting Started
