@@ -3,7 +3,7 @@ var argv = require('minimist')(process.argv.slice(2)),
     help = require('help')(__dirname + '/../doc/issue-comment.txt'),
     debug = require('debug')('github-hotline:issue-comment-cli'),
     chalk = require('chalk'),
-    DestinationParser = require('../lib/destination-parser'),
+    DestinationParser = require('../lib/github-hotline/destination-parser'),
     hotline = require('../lib/github-hotline');
 
 function reportSuccess(data) {
