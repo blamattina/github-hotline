@@ -4,12 +4,12 @@ var argv = require('minimist')(process.argv.slice(2)),
     debug = require('debug')('github-hotline:issue-comment-cli'),
     chalk = require('chalk'),
     DestinationParser = require('../lib/github-hotline/destination-parser'),
-    hotline = require('../lib/github-hotline');
+    hotline = require('../');
 
 function reportSuccess(data) {
-  debug('Message sent');
+  debug('Comment Created.');
   debug(data);
-  console.log('Message Sent!');
+  console.log('Comment Created.');
   process.exit(0);
 }
 
