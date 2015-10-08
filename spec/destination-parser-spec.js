@@ -1,4 +1,4 @@
-var DestinationParser = require('../lib/destination-parser');
+var DestinationParser = require('../lib/github-hotline/destination-parser');
 
 describe('DestinationParser', function() {
 
