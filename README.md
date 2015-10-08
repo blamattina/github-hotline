@@ -14,8 +14,25 @@ npm install -g github-hotline
 
 Usage
 ```
-export GITHUB_USERNAME=username
-export GITHUB_PASSWORD=personal-access-token
-issue-comment blamattina/github-hotline#13 Looks good :zap:
-=> 'Comment Created!'
+USAGE: issue-comment USER/REPO#NUMBER COMMENT...
+       issue-comment --user USER --repo REPO --number NUMBER COMMENT...
+
+  Issue a comment on a pull request.
+
+  USER        github user name
+  REPO        github repository name
+  NUMBER      pull request number
+  COMMENT     comment to leave
+
+Example:
+
+  issue-comment blamattina/github-hotline#3400 This works great!
+```
+
+Example
+```
+$ export GITHUB_USERNAME=username
+$ export GITHUB_PASSWORD=personal-access-token
+$ issue-comment blamattina/github-hotline#13 Looks good :zap:
+Comment Created.
 ```
