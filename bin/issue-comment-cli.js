@@ -1,30 +1,37 @@
 #!/usr/bin/env node
-var argv = require('minimist')(process.argv.slice(2)),
+'use strict';
+var argv = require('minimist')(process.argv.slice(2), {boolean: true}),
     help = require('help')(__dirname + '/../doc/issue-comment.txt'),
     debug = require('debug')('github-hotline:issue-comment-cli'),
     chalk = require('chalk'),
     DestinationParser = require('../lib/github-hotline/destination-parser'),
     hotline = require('../');
 
-function reportSuccess(data) {
-  debug('Comment Created.');
+const reportSuccess = (data) => {
+  debug('Exiting successfully.');
   debug(data);
-  console.log('Comment Created.');
+  if(typeof data == 'object' && data.meta.status == '201 Created') {
+    console.log('Comment Created.')
+  } else {
+    console.log(data);
+  }
   process.exit(0);
 }
 
-function reportError(error) {
+const reportError = (error) => {
   debug('Uncaught exception. Exiting!');
   debug(error);
   console.error(chalk.red('\nERROR: ' + error.message + '\n'));
   help(1);
 }
 
-function parseArgs(argv) {
+const parseArgs = (argv) => {
+  var once = !!argv['once'];
+
   if (argv.user && argv.repo && argv.number) {
-    var user = argv['user'],
-        repo = argv['repo'],
-        number = argv['number'];
+    var user = argv['u'],
+        repo = argv['r'],
+        number = argv['n'];
         body = argv._.slice(0).join(' ');
 
   } else if (argv._.length >= 2) {
@@ -41,6 +48,7 @@ function parseArgs(argv) {
     return help(1);
   }
   return {
+    once: once,
     user: user,
     repo: repo,
     number: number,
@@ -54,6 +62,7 @@ try {
     debug('Issue comment with...');
     debug(params);
     hotline.createIssueComment({
+      once: params.once,
       user: params.user,
       repo: params.repo,
       number: params.number,
