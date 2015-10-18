@@ -8,7 +8,7 @@
   },
   "engines" : { "node" : ">=4.0.0" },
   "scripts": {
-    "eslint": "eslint src/ specs/",
+    "eslint": "eslint ./",
     "jasmine": "NODE_PATH=. jasmine",
     "jasmine-debug": "NODE_PATH=. DEBUG='*' node debug node_modules/jasmine/bin/jasmine.js",
     "test": "npm run eslint && npm run jasmine"
@@ -44,5 +44,12 @@
     "jasmine": "^2.3.2",
     "jasmine-core": "^2.3.4",
     "rewire": "^2.3.4"
+  },
+  "eslintConfig": {
+      "env": {
+          "browser": false,
+          "es6": true,
+          "node": true
+      }
   }
 }

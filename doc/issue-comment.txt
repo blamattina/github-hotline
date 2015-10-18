@@ -1,5 +1,5 @@
-USAGE: issue-comment USER/REPO#NUMBER COMMENT...
-       issue-comment --user USER --repo REPO --number NUMBER COMMENT...
+USAGE: issue-comment [--once] USER/REPO#NUMBER COMMENT...
+       issue-comment [--once] -u USER -r REPO -n NUMBER COMMENT...
 
   Issue a comment on a pull request.
 
@@ -7,6 +7,10 @@ USAGE: issue-comment USER/REPO#NUMBER COMMENT...
   REPO        github repository name
   NUMBER      pull request number
   COMMENT     comment to leave
+
+  Options:
+
+  --once      create this comment if it does not already exist
 
 Example:
 
