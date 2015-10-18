@@ -6,9 +6,11 @@
   "bin": {
     "issue-comment": "./bin/issue-comment-cli.js"
   },
+  "engines" : { "node" : ">=4.0.0" },
   "scripts": {
     "eslint": "eslint src/ specs/",
     "jasmine": "NODE_PATH=. jasmine",
+    "jasmine-debug": "NODE_PATH=. DEBUG='*' node debug node_modules/jasmine/bin/jasmine.js",
     "test": "npm run eslint && npm run jasmine"
   },
   "repository": {
