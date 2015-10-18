@@ -28,7 +28,7 @@ const reportError = (error) => {
 const parseArgs = (argv) => {
   var once = !!argv['once'];
 
-  if (argv.user && argv.repo && argv.number) {
+  if (argv.u && argv.r && argv.n) {
     var user = argv['u'],
         repo = argv['r'],
         number = argv['n'];
